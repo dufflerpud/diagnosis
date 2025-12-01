@@ -254,9 +254,7 @@ EOF1
 	    . &button("Text dump",	"download")
 	    . &button("Upload",		"upload");
 	}
-    $pstring .=
-	  &button("Administration",	"admin")
-	. &logout_select("footform")
+    $pstring .= &logout_select("footform")
 	. <<EOF3;
 </td></tr></table></th></tr></table></center></form>
 EOF3
