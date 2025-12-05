@@ -21,7 +21,7 @@ use cpi_file qw(cleanup fatal);
 use cpi_lock qw( lock_file unlock_file );
 use cpi_vars;
 
-&setup(preset_language=>"en");
+&setup(Qpreset_language=>"en");
 
 my $DEBUG = 1;
 $| = 1;
