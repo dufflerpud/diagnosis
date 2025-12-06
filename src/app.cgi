@@ -16,7 +16,7 @@ use cpi_setup qw(setup);
 use cpi_db qw(dbadd dbarr dbdel dbget dbpop dbput dbwrite);
 use cpi_translate qw(xprint);
 use cpi_cgi qw(safe_html show_vars);
-use cpi_user qw(admin_page in_group logout_select);
+use cpi_user qw(in_group logout_select);
 use cpi_file qw(cleanup fatal);
 use cpi_lock qw( lock_file unlock_file );
 use cpi_vars;
@@ -1922,8 +1922,6 @@ sub download
 #########################################################################
 #	Mainline							#
 #########################################################################
-&admin_page() if( $cpi_vars::FORM{func} eq "admin" );
-
 &file_upload( $ARGV[1], $ARGV[2] ) if( !$ENV{SCRIPT_NAME} && $ARGV[0] eq "read" );
 
 &fatal(<<EOF)
