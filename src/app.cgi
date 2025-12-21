@@ -230,7 +230,7 @@ function do_discipline(t)
 <option value="">XL(Select discipline)
 EOF1
     $pstring .= "<option value=\"+\">XL(Add discipline)\n"
-	if( &in_group($cpi_vars::REALUSER,"administrators") );
+	if( &can_admin() );
     my %selflag = ( $discipline, " selected" );
     foreach my $tempdisc ( sort &dbget($cpi_vars::DB,"Disciplines") )
         {
@@ -1931,11 +1931,11 @@ XL(Usage):  $cpi_vars::PROG.cgi read filename discipline
 EOF
     if( $ENV{SCRIPT_NAME} eq "" );
 
-my $bestg = "administrators";
-if( $bestg )
-    { $cpi_vars::FORM{current_group} = $bestg; }
-else
-    { &fatal("No group appropriate for $cpi_vars::REALUSER"); }
+#my $bestg = "administrators";
+#if( $bestg )
+#    { $cpi_vars::FORM{current_group} = $bestg; }
+#else
+#    { &fatal("No group appropriate for $cpi_vars::REALUSER"); }
 
 my $fn = &formdef("func");
 $discipline = $cpi_vars::FORM{discipline};
@@ -1946,7 +1946,7 @@ print "<body $cpi_vars::BODY_TAGS>";
 
 #&show_vars("Form values for \"$fn\":",@DUMP_EXCLUDE);
 
-if( $discipline && &in_group($cpi_vars::REALUSER,"administrators") )
+if( $discipline && &can_admin() )
     {
     my @disclist = &dbget($cpi_vars::DB,"Disciplines");
     &DBDwrite();
