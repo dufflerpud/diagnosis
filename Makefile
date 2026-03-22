@@ -37,4 +37,5 @@ test:		$(RESDIR)/.must_exist
 
 %:
 		@echo "Invoking std_$@ rule:"
-		@$(MAKE) std_$@ ORIGINAL_TARGET=$@
+		@$(MAKE) ORIGINAL_TARGET=$@ st
+d_$@
