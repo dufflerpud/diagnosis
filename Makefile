@@ -32,9 +32,6 @@
 PROJECTSDIR?=$(shell echo $(CURDIR) | sed -e 's+/projects/.*+/projects+')
 include $(PROJECTSDIR)/common/Makefile.std
 
-test:		$(RESDIR)/.must_exist
-		$(BINDIR)/* < tests/1 > $(RESDIR)/1
-
 %:
 		@echo "Invoking std_$@ rule:"
 		@$(MAKE) ORIGINAL_TARGET=$@ std_$@
